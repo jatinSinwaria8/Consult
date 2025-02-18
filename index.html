@@ -4,12 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Consult</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#ham").click(function () {
+          // when hamburger button is clicked it checks if the nav menue is opened or closed
+
+          if ($("#navagation-links").hasClass("nav-links-wrapper-show")) {
+            // if menue is opened it closes it
+            $("#ham").addClass("hamburger");
+            $("#ham").removeClass("hamburger-fixed");
+            // addition of hamburger fixed class to fix hamburger button to menue
+
+            $("#line1").removeClass("x1");
+            $("#line2").removeClass("x2");
+            $("#line3").removeClass("x3");
+            // css to make hamburger button from X
+
+            // hides nav links
+            $("#navagation-links").removeClass("nav-links-wrapper-show");
+          } else {
+            // if menue is closed it openes it
+            // css to make X from hamburger button
+            $("#line1").addClass("x1");
+            $("#line2").addClass("x2");
+            $("#line3").addClass("x3");
+            // removing of hamburger fixed class to unfix hamburger button to menue
+            $("#ham").removeClass("hamburger");
+            $("#ham").addClass("hamburger-fixed");
+
+            // showes nav links
+            $("#navagation-links").addClass("nav-links-wrapper-show");
+          }
+        });
+      });
+    </script>
   </head>
   <body>
     <!-- header section start containing navbar and main heading height of 100vh-->
     <header>
-      <div class="navbar">
+      <nav id="navagation-bar" class="navbar">
         <!-- navbar has 2 parts top and bottom nav -->
         <nav class="top-nav">
           <!-- top nav contains help links and contact info -->
@@ -24,14 +61,14 @@
                 <a>Career</a>
               </div>
               <div class="contact-us-info">
-                <div class="indi-contactUs">
+                <div class="individual-contactUs">
                   <div class="img-block">
                     <img src="images/mail.svg" />
                   </div>
                   <!-- contact info -->
                   <p>mail@domain.com</p>
                 </div>
-                <div class="indi-contactUs">
+                <div class="individual-contactUs">
                   <div class="img-block">
                     <img src="images/phone.svg" />
                   </div>
@@ -53,17 +90,25 @@
                 <h4>Consult</h4>
               </div>
               <!-- page links -->
-              <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Pages</a>
-                <a href="#">Services</a>
-                <a href="#">Contact</a>
+              <div id="navagation-links" class="nav-links-wrapper">
+                <div class="nav-links">
+                  <a href="#">Home</a>
+                  <a href="#">About</a>
+                  <a href="#">Pages</a>
+                  <a href="#">Services</a>
+                  <a href="#">Contact</a>
+                </div>
+              </div>
+
+              <div id="ham" class="hamburger">
+                <span id="line1" class="line"></span>
+                <span id="line2" class="line"></span>
+                <span id="line3" class="line"></span>
               </div>
             </div>
           </div>
         </nav>
-      </div>
+      </nav>
       <!-- main heading covering the rest of viewport height with left right buttons and main heading and buttons it also consist of overlay color -->
       <div class="main-heading">
         <div class="overlay">
@@ -97,10 +142,11 @@
         <div class="about-consult-wrapper">
           <!-- left content div -->
           <div class="about-consult-content-left">
+            <!-- tittle for this section -->
             <h3>Welcome To <span class="red">Consult</span></h3>
             <h4>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.minima,
-              fugit, tempore alias illum
+              fugit, tempore alias illum.
             </h4>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -116,12 +162,12 @@
           </div>
           <div class="about-consult-content-right">
             <!-- right content div -->
-            <div class="about-consult-indiright">
+            <div class="about-consult-individualright">
               <!-- individual cards in this section -->
-              <div class="indiright-img">
+              <div class="individualright-img">
                 <img src="images/red.svg" />
               </div>
-              <div class="indiright-content">
+              <div class="individualright-content">
                 <h4>Business Planning</h4>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
@@ -130,11 +176,11 @@
                 </p>
               </div>
             </div>
-            <div class="about-consult-indiright">
-              <div class="indiright-img">
+            <div class="about-consult-individualright">
+              <div class="individualright-img">
                 <img src="images/red.svg" />
               </div>
-              <div class="indiright-content">
+              <div class="individualright-content">
                 <h4>Financial Analysis</h4>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
@@ -143,11 +189,11 @@
                 </p>
               </div>
             </div>
-            <div class="about-consult-indiright">
-              <div class="indiright-img">
+            <div class="about-consult-individualright">
+              <div class="individualright-img">
                 <img src="images/red.svg" />
               </div>
-              <div class="indiright-content">
+              <div class="individualright-content">
                 <h4>Legal Advisory</h4>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
@@ -169,17 +215,20 @@
           <h3 class="section-heading-border">What We Offer</h3>
           <!-- services grid with individual service -->
           <div class="services-grid">
-            <div class="s2-indi-grid-item">
+            <div class="services-individual-grid-item">
               <div class="grid-img">
+                <!-- card image -->
                 <img src="images/white.svg" />
               </div>
+              <!-- card heading -->
               <h4>Business Research</h4>
               <p>
+                <!-- card content -->
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
                 velit placeat sit optio repellat
               </p>
             </div>
-            <div class="s2-indi-grid-item">
+            <div class="services-individual-grid-item">
               <div class="grid-img"><img src="images/white.svg" /></div>
               <h4>Business Research</h4>
               <p>
@@ -187,7 +236,7 @@
                 velit placeat sit optio repellat
               </p>
             </div>
-            <div class="s2-indi-grid-item">
+            <div class="services-individual-grid-item">
               <div class="grid-img"><img src="images/white.svg" /></div>
               <h4>Business Research</h4>
               <p>
@@ -195,7 +244,7 @@
                 velit placeat sit optio repellat
               </p>
             </div>
-            <div class="s2-indi-grid-item">
+            <div class="services-individual-grid-item">
               <div class="grid-img"><img src="images/white.svg" /></div>
               <h4>Business Research</h4>
               <p>
@@ -203,7 +252,7 @@
                 velit placeat sit optio repellat
               </p>
             </div>
-            <div class="s2-indi-grid-item">
+            <div class="services-individual-grid-item">
               <div class="grid-img"><img src="images/white.svg" /></div>
               <h4>Business Research</h4>
               <p>
@@ -211,7 +260,7 @@
                 velit placeat sit optio repellat
               </p>
             </div>
-            <div class="s2-indi-grid-item">
+            <div class="services-individual-grid-item">
               <div class="grid-img"><img src="images/white.svg" /></div>
               <h4>Business Research</h4>
               <p>
@@ -222,15 +271,19 @@
           </div>
         </div>
       </div>
+      <!-- section 3 benifits why choose us -->
     </section>
     <section class="benifits">
       <div class="container">
         <div class="benifits-wrapper">
+          <!-- main heading of this section -->
           <h3 class="section-heading-border">Why Choose Us!!!</h3>
           <div class="benifits-main-content">
+            <!-- main content wrapper of this section divided in 3 parts -->
             <div class="benifits-cards">
-              <div class="indi-card">
-                <div class="indi-img"><img src="images/white.svg" /></div>
+              <!-- 1st part with 3 cards vertically -->
+              <div class="individual-card">
+                <div class="individual-img"><img src="images/white.svg" /></div>
                 <h4>Best In Industry</h4>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing
@@ -238,8 +291,8 @@
                   elit ipsum dolor sit amet consectetur adipisicing elit
                 </p>
               </div>
-              <div class="indi-card">
-                <div class="indi-img"><img src="images/white.svg" /></div>
+              <div class="individual-card">
+                <div class="individual-img"><img src="images/white.svg" /></div>
                 <h4>Best In Industry</h4>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing
@@ -247,8 +300,8 @@
                   elit ipsum dolor sit amet consectetur adipisicing elit
                 </p>
               </div>
-              <div class="indi-card">
-                <div class="indi-img"><img src="images/white.svg" /></div>
+              <div class="individual-card">
+                <div class="individual-img"><img src="images/white.svg" /></div>
                 <h4>Best In Industry</h4>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing
@@ -257,6 +310,7 @@
                 </p>
               </div>
             </div>
+            <!-- 2nd part with a image content and a button -->
             <div class="benifits-mid-img">
               <div class="benifits-img">
                 <img src="images/feature.jpg" />
@@ -272,8 +326,9 @@
               </div>
             </div>
             <div class="benifits-cards">
-              <div class="indi-card">
-                <div class="indi-img"><img src="images/white.svg" /></div>
+              <!-- 3rd part with 3 cards vertically -->
+              <div class="individual-card">
+                <div class="individual-img"><img src="images/white.svg" /></div>
                 <h4>Best In Industry</h4>
                 <p>
                   Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit
@@ -281,8 +336,8 @@
                   dolor sit amet consectetur adipisicing elit
                 </p>
               </div>
-              <div class="indi-card">
-                <div class="indi-img"><img src="images/white.svg" /></div>
+              <div class="individual-card">
+                <div class="individual-img"><img src="images/white.svg" /></div>
                 <h4>Best In Industry</h4>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing
@@ -290,8 +345,8 @@
                   elit ipsum dolor sit amet consectetur adipisicing elit
                 </p>
               </div>
-              <div class="indi-card">
-                <div class="indi-img"><img src="images/white.svg" /></div>
+              <div class="individual-card">
+                <div class="individual-img"><img src="images/white.svg" /></div>
                 <h4>Best In Industry</h4>
                 <p>
                   Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
@@ -304,9 +359,12 @@
         </div>
       </div>
     </section>
+    <!-- section 4 service request -->
     <section class="service-request">
+      <!-- left container with heading main content and form -->
       <div class="container-only-left">
         <div class="service-request-wrapper">
+          <!-- main content -->
           <div class="service-request-content">
             <h4>Request a free quote</h4>
             <p>
@@ -317,6 +375,8 @@
               ratione soluta unde officia numquam dolor aperiam, praesentium
               quae ipsum possimus rem nobis!
             </p>
+
+            <!-- form consisting of email name service type and a submit button -->
             <form class="form-grid">
               <input
                 class="form-element-style"
@@ -345,15 +405,18 @@
               />
             </form>
           </div>
+          <!-- right side image going out of container  -->
           <div class="service-request-img"></div>
         </div>
       </div>
     </section>
+    <!-- Our team members section -->
     <sectiion class="our-team">
       <div class="container">
         <div class="our-team-wrapper">
           <h3 class="section-heading-border">Our Team Members</h3>
           <div class="our-team-images">
+            <!-- 3 images side by side -->
             <img src="images/team-1.jpg" />
             <img src="images/team-2.jpg" />
             <img src="images/team-3.jpg" />
@@ -361,10 +424,15 @@
         </div>
       </div>
     </sectiion>
+
+    <!-- clent reviews section -->
     <section class="client-reviews">
       <div class="container-only-right">
         <div class="client-reviews-wrapper">
+          <!-- left side image going out of container  -->
           <div class="client-reviews-img"></div>
+
+          <!-- Main content for this section -->
           <div class="client-reviews-content">
             <h4>Request a free quote</h4>
             <p>
@@ -391,12 +459,39 @@
         </div>
       </div>
     </section>
+    <!-- Blogs section -->
     <section class="latest-blogs">
       <div class="container">
         <div class="latest-blogs-wrapper">
           <h3 class="section-heading-border">Latest Blog Post</h3>
           <div class="blogs">
-            <div class="indi-blog">
+            <!-- individual blog card -->
+            <div class="individual-blog">
+              <div class="blog-img">
+                <!-- image for each blog -->
+                <img src="images/blog-1.jpg" />
+              </div>
+              <div class="blog-content">
+                <!-- left side content of blogs with date -->
+                <div class="blog-left">
+                  <p>01</p>
+                  <h4>JAN</h4>
+                  <p>2025</p>
+                </div>
+                <div class="blog-right">
+                  <div class="blog-right-position">
+                    <!-- designation of person writting blog -->
+                    <p>ADMIN</p>
+                    <p>WEB DESIGN</p>
+                  </div>
+                  <!-- main blog content -->
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="individual-blog">
               <div class="blog-img">
                 <img src="images/blog-1.jpg" />
               </div>
@@ -417,28 +512,7 @@
                 </div>
               </div>
             </div>
-            <div class="indi-blog">
-              <div class="blog-img">
-                <img src="images/blog-1.jpg" />
-              </div>
-              <div class="blog-content">
-                <div class="blog-left">
-                  <p>01</p>
-                  <h4>JAN</h4>
-                  <p>2025</p>
-                </div>
-                <div class="blog-right">
-                  <div class="blog-right-position">
-                    <p>ADMIN</p>
-                    <p>WEB DESIGN</p>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="indi-blog">
+            <div class="individual-blog">
               <div class="blog-img">
                 <img src="images/blog-1.jpg" />
               </div>
@@ -463,8 +537,10 @@
         </div>
       </div>
     </section>
+    <!-- footer section -->
     <footer>
       <div class="footer-wrapper">
+        <!-- upper footer with email form -->
         <div class="upper-footer">
           <div class="container">
             <div class="upper-footer-wrapper">
@@ -476,11 +552,12 @@
             </div>
           </div>
         </div>
+        <!-- lower footer with various links and logos -->
         <div class="lower-footer">
           <div class="footer-all-links">
             <div class="container">
               <div class="footer-all-links-wrapper">
-                <div class="indi-footer-link-section">
+                <div class="individual-footer-link-section">
                   <h4>Quick Links</h4>
                   <p><span>→</span> Home</p>
                   <p><span>→</span> About Us</p>
@@ -488,7 +565,7 @@
                   <p><span>→</span> Latest blog post</p>
                   <p><span>→</span> Contact us</p>
                 </div>
-                <div class="indi-footer-link-section">
+                <div class="individual-footer-link-section">
                   <h4>popular Links</h4>
                   <p><span>→</span> Home</p>
                   <p><span>→</span> About Us</p>
@@ -496,7 +573,7 @@
                   <p><span>→</span> Latest blog post</p>
                   <p><span>→</span> Contact us</p>
                 </div>
-                <div class="indi-footer-link-section">
+                <div class="individual-footer-link-section">
                   <h4>Get in touch</h4>
                   <p>
                     <img src="images/footer-location.svg  " /> Lorem ipsum dolor
@@ -505,19 +582,19 @@
                   <p><img src="images/footer-mail.svg  " /> email@domain.com</p>
                   <p><img src="images/footer-phone.svg  " /> +91-9928735647</p>
                 </div>
-                <div class="indi-footer-link-section">
+                <div class="individual-footer-link-section">
                   <h4>Follow us on</h4>
                   <div class="social-links">
-                    <div class="indi-social-links">
+                    <div class="individual-social-links">
                       <img src="images/x.svg" />
                     </div>
-                    <div class="indi-social-links">
+                    <div class="individual-social-links">
                       <img src="images/lkdin.svg" />
                     </div>
-                    <div class="indi-social-links">
+                    <div class="individual-social-links">
                       <img src="images/fb.svg" />
                     </div>
-                    <div class="indi-social-links">
+                    <div class="individual-social-links">
                       <img src="images/insta.svg" />
                     </div>
                   </div>
@@ -525,6 +602,7 @@
               </div>
             </div>
           </div>
+          <!-- copyright section -->
           <div class="copyright">
             <h4>© Consult 2025. All rights reserved. Designed by HTML Codex</h4>
           </div>
